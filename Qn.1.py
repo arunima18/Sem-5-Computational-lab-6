@@ -41,6 +41,11 @@ print('The value of I using simpson method is',sum3f3)
 
 
 '''
+
+Analytical value: 1.3068528194
+
+Output:
+
 For N=5
 The value of I using midpoint method is 0.30809211428406474
 The value of I using trapezium method is 0.3043650793650794
