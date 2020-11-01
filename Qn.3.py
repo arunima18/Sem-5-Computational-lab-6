@@ -9,6 +9,20 @@ def fxn_3(x):
     
 
 #Main function
-sum1,sum2=Library.montecarlo(fxn_3,0,1,10)
-print(sum1,sum2)
+
+#sum1=Library.montecarlo(fxn_3,0,1,10)
+#print(sum1)
+
+list_N=[]
+list_value=[]
+
+for i in range (1,4000):
+    N=i*10 
+    montecarlo=Library.montecarlo(fxn_3,0,1,N)
+    list_N.append(N)
+    list_value.append(montecarlo)
+    
+print(list_N)
+print(list_value)
+    
 
