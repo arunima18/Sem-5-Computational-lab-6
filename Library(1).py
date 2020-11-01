@@ -1,5 +1,5 @@
 import math
-from random import random
+import random
 
 #partial pivoting
 def partial_pivot(Mat1,n,Mat2):
@@ -189,27 +189,21 @@ def simpson(a,b,f,N):
 
     return h/3 * (f(a) + f(b) + sum3)
     
-    
-def montecarlo(f, lowr_lim, uppr_lim, N):
-    # f = integrand, lowr_lim = lower limit, uppr_lim = upper limit, N = no. of partitions
 
-    a = lowr_lim
-    b = uppr_lim
-    t_1 = 0
-    t_2i = 0
+#Monte Carlo method
+def montecarlo(f,a,b,N):
+    x=[]
+    sum=0.0
 
     for i in range(N):
-        r = random()
-        x = a + (b - a) * r
+        n=random.random()       #random number in the range (0,1)
+        r=a+((b-a)*n)           #random number in range (a,b)
+        x.append(r)
 
-        t_1 += (f(x))**2 / N
-        t_2i += f(x) / N
+    for i in range(N):
+        sum+=f(x[i])
 
-    t_2 = t_2i**2
-    sigma_sq = t_1 - t_2
-    sigma = math.sqrt(sigma_sq)
+    value=((b-a)*sum)/N
 
-    F_N = t_2i * (b - a)
-
-    return F_N, sigma
+    return value
 
